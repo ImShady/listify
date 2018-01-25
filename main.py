@@ -8,4 +8,4 @@ raw_data = r.text
 soup = BeautifulSoup(raw_data, "html.parser")
 
 for item in soup.find_all('span', {"class": "recipe-ingred_txt added"}):
-    print(item)
+    print(item.text)
