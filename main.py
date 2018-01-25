@@ -16,24 +16,27 @@ def fetch_ings(url):
 
 def parse_ings(ing_strings):
 	parsed_ings = []
-	units = ["cup", "cups", "ounce", "oz", "gram", "tablespoon", "tbsp", "teaspoon", "tsp"]
+	units = ["cup", "cups", "ounce", "oz", "gram", "tablespoon", "tablespoons", "tbsp", "teaspoon", "teaspoons","tsp"]
 	for ing in ing_strings:
-		# if string1 equals string2:
-		# 	DO_THIS_HERE
-		# elif SECOND CASE:
-		# else:
-		# 	LAST CASE
+		split_ing = ing.split()
 		parsed_ing = {}
-		parsed_ing['name'] = NAME_HERE
-		parsed_ing['amount'] = AMOUNT_HERE
-		parsed_ing['unit'] = UNIT_HERE
-		parsed_ings.append()
+
+		if any(x in split_ing[1] for x in units):
+			parsed_ing['amount'] = split_ing[0] 
+			parsed_ing['unit'] = split_ing[1]
+			parsed_ing['name'] = ' '.join(split_ing[2:])
+		else:
+			parsed_ing['amount'] = split_ing[0]
+			parsed_ing['unit'] = "item"
+			parsed_ing['name'] = ' '.join(split_ing[2:])
+
+		parsed_ings.append(parsed_ing)
 
 	return parsed_ings
 
 def main():
 	test_url = "http://allrecipes.com/recipe/12682/apple-pie-by-grandma-ople/"
-	parse_ings(fetch_ings(test_url))
+	print(parse_ings(fetch_ings(test_url)))
   
 if __name__== "__main__":
   main()
