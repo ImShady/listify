@@ -22,7 +22,7 @@ def parse_ings(ing_strings):
 		split_ing = ing.split()
 		parsed_ing = {}
 		parsed_ing['amount'] = split_ing[0] 
-		parsed_ing['unit'] = split_ing[1] if any(x in split_ing[1] for x in units) else "item"			
+		parsed_ing['unit'] = split_ing[1] if split_ing[1] in units else "item"
 		parsed_ing['name'] = ' '.join(split_ing[2:])
 		parsed_ings.append(parsed_ing)
 
