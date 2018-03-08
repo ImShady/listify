@@ -1,9 +1,5 @@
-from bs4 import BeautifulSoup
-import requests
-
-
 def fetch_ings(url):
-	r = requests.get(url)
+	r = requests.get(url) # this is how you comment in Python! =)
 
 	raw_data = r.text
 	ing_strings = []
@@ -13,6 +9,9 @@ def fetch_ings(url):
 	    ing_strings.append(item.text)
 
 	return ing_strings
+
+def convert_to_grams():
+
 
 def parse_ings(ing_strings):
 	parsed_ings = []
