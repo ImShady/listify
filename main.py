@@ -1,3 +1,7 @@
+from bs4 import BeautifulSoup
+import requests
+from ingredient import Ingredient
+
 def fetch_ings(url):
 	r = requests.get(url) # this is how you comment in Python! =)
 
