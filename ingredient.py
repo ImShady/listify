@@ -1,5 +1,5 @@
 # grams per measurement (metric conversions)
-per_gr_coversion = {
+per_g_coversion = {
 	'tsp': 5, 
 	'tbsp': 15, 
 	'cup': 250, 
@@ -26,7 +26,7 @@ class Ingredient():
 			return float(num) / float(denom)
 
 	def convert_to_grams(self, amount, unit):
-		return float(amount) * dict.get(per_gr_coversion, unit, 1)
+		return float(amount) * dict.get(per_g_coversion, unit, 1)
 
 	def convert_from_grams(self, amount, unit):
-		return float(amount) / dict.get(per_gr_coversion, unit, 1)
+		return float(amount) / dict.get(per_g_coversion, unit, 1)
